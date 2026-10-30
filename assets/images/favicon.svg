@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="p3bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020b18"/>
+      <stop offset="50%" stop-color="#061428"/>
+      <stop offset="100%" stop-color="#0a1e38"/>
+    </linearGradient>
+    <linearGradient id="p3border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#00f5c4"/>
+    </linearGradient>
+    <linearGradient id="p3doc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081e3a"/>
+      <stop offset="100%" stop-color="#0e2a52"/>
+    </linearGradient>
+    <filter id="p3glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#00d4ff" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base with Persona 3 Cyberpunk shape -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#p3bg)" stroke="url(#p3border)" stroke-width="2.5" />
+
+  <!-- Subtle corner tech notches -->
+  <line x1="8" y1="2" x2="2" y2="8" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="56" y1="2" x2="62" y2="8" stroke="#00f5c4" stroke-width="2"/>
+  <line x1="2" y1="56" x2="8" y2="62" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="62" y1="56" x2="56" y2="62" stroke="#00f5c4" stroke-width="2"/>
+
+  <!-- CV Document Body with Folded Top-Right Corner -->
+  <path d="M17 14 H37 L47 24 V49 C47 50.7 45.7 52 44 52 H17 C15.3 52 14 50.7 14 49 V17 C14 15.3 15.3 14 17 14 Z" 
+        fill="url(#p3doc)" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round" filter="url(#p3glow)"/>
+
+  <!-- Fold triangle -->
+  <path d="M37 14 V24 H47 Z" fill="#00d4ff" opacity="0.3" stroke="#00d4ff" stroke-width="1.8" stroke-linejoin="round"/>
+
+  <!-- Profile Badge / Avatar (Professional Headshot silhouette) -->
+  <circle cx="24" cy="24" r="4" fill="#00d4ff"/>
+  <path d="M19.5 32 C19.5 29.8 21.5 28.5 24 28.5 C26.5 28.5 28.5 29.8 28.5 32" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Code / Software Engineering Symbol </> on the right side of the CV -->
+  <path d="M34 27 L31.5 29.5 L34 32" stroke="#00f5c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M41 27 L43.5 29.5 L41 32" stroke="#00f5c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="39" y1="26.5" x2="36" y2="32.5" stroke="#00f5c4" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- CV Resume Lines representing Experience, Skills & Education -->
+  <line x1="19" y1="37" x2="42" y2="37" stroke="#e8f4ff" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <line x1="19" y1="42" x2="37" y2="42" stroke="#8aa8c8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="19" y1="47" x2="30" y2="47" stroke="#00f5c4" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Accent glow dot -->
+  <circle cx="42" cy="47" r="1.5" fill="#00f5c4" />
+</svg>

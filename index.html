@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oscar Valverde - Portafolio Profesional. Estudiante de Ingeniería de Software de la Universidad de Guayaquil. Desarrollador web con conocimientos en Java, Python, C++ y más." />
+  <meta name="keywords" content="Oscar Valverde, Ingeniería de Software, Desarrollador Web, Universidad de Guayaquil, Ecuador, Portfolio" />
+  <meta name="author" content="Oscar Esteban Valverde Gusqui" />
+  <meta property="og:title" content="Oscar Valverde | Portafolio Profesional" />
+  <meta property="og:description" content="Estudiante de Ingeniería de Software. Desarrollador web apasionado por el código limpio y la innovación tecnológica." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#020b18" />
+
+  <title>Oscar Valverde | Portafolio Profesional</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="assets/images/oscar.png" />
+</head>
+<body class="splash-active">
+
+  <!-- Skip to main content (Accessibility) -->
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- Screen reader live region -->
+  <div id="sr-announcer" role="alert" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+  <!-- Background layers -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+  </div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Progress bar -->
+  <div id="progress-bar" role="progressbar" aria-label="Progreso de lectura" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Audio Visualizer -->
+  <div class="audio-visualizer" aria-hidden="true"></div>
+
+  <!-- P3 Clock Decoration -->
+  <div class="p3-clock" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       SPLASH SCREEN
+       ============================================================ -->
+  <div id="splash-screen" role="dialog" aria-modal="true" aria-labelledby="splash-name" aria-describedby="splash-title">
+    <div class="splash-bg" aria-hidden="true"></div>
+    <div class="splash-geometric" aria-hidden="true">
+      <div class="splash-circle splash-circle-1"></div>
+      <div class="splash-circle splash-circle-2"></div>
+      <div class="splash-circle splash-circle-3"></div>
+    </div>
+    <div class="splash-lines" aria-hidden="true"></div>
+
+    <div class="splash-content">
+      <p class="splash-tag" aria-hidden="true">// Portafolio Profesional //</p>
+
+      <div class="splash-photo-frame">
+        <img
+          src="assets/images/oscar.png"
+          alt="Foto formal de Oscar Valverde"
+          class="splash-photo"
+          width="160"
+          height="160"
+        />
+      </div>
+
+      <h1 id="splash-name" class="splash-name">
+        Oscar<span>Valverde</span>
+      </h1>
+
+      <p id="splash-title" class="splash-title">Ingeniería de Software · Universidad de Guayaquil</p>
+
+      <div class="splash-divider" aria-hidden="true"></div>
+
+      <div class="splash-buttons">
+        <button
+          id="splash-sound"
+          class="splash-btn splash-btn-sound"
+          aria-label="Entrar al portafolio con experiencia sonora"
+        >
+          🔊 Entrar con sonido
+        </button>
+        <button
+          id="splash-silent"
+          class="splash-btn splash-btn-silent"
+          aria-label="Entrar al portafolio en silencio"
+        >
+          🔇 Entrar en silencio
+        </button>
+      </div>
+
+      <p class="splash-hint" aria-hidden="true">Presiona Enter para entrar en silencio</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a href="#about" class="nav-logo" aria-label="Oscar Valverde - Inicio">OV<span aria-hidden="true">.</span></a>
+
+      <ul class="nav-menu" role="list" id="nav-menu">
+        <li><a href="#about" aria-current="page">Sobre Mí</a></li>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#conocimientos">Conocimientos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#galeria">Proyectos</a></li>
+        <li><a href="#logros">Logros</a></li>
+        <li><a href="#referencias">Referencias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <span id="nav-time" aria-live="polite" aria-label="Hora actual" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); display: none;"></span>
+        <button
+          id="audio-toggle"
+          aria-label="Activar música de fondo"
+          title="Alternar música"
+        >🔇</button>
+        <button
+          id="theme-toggle"
+          aria-label="Cambiar a tema claro"
+          title="Cambiar tema"
+        >☀️</button>
+        <button
+          class="hamburger"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main-content">
+
+    <!-- ========================
+         SECCIÓN: ACERCA DE MÍ
+         ======================== -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="hero-inner">
+
+          <!-- Text side -->
+          <div>
+            <p class="hero-text-tag" aria-hidden="true">// Acerca de mí //</p>
+            <h1 id="about-title" class="hero-name">
+              <span class="first-name glitch" data-text="Oscar">Oscar</span>
+              <span class="last-name">Valverde</span>
+            </h1>
+            <p class="hero-role">Ingeniero de Software en Formación</p>
+            <div aria-live="polite">
+              <span id="typewriter" class="hero-typewriter" aria-label="Roles profesionales"></span>
+            </div>
+
+            <blockquote class="hero-bio">
+              Estudiante de Ingeniería de Software en la Universidad de Guayaquil
+              (tercer semestre). Persona persistente, orientada a metas y con alta
+              disposición para aprender. Trabajo en equipo, me adapto con facilidad
+              a los cambios y propongo soluciones efectivas ante imprevistos. Mis
+              valores de compromiso, disciplina y honestidad guían mi desarrollo
+              profesional.
+            </blockquote>
+
+            <div class="hero-stats" role="list">
+              <div class="hero-stat" role="listitem">
+                <span class="hero-stat-num" data-target="3" aria-label="3">3</span>
+                <span class="hero-stat-label">Semestres</span>
+              </div>
+              <div class="hero-stat" role="listitem">
+                <span class="hero-stat-num" data-target="3" aria-label="3">3</span>
+                <span class="hero-stat-label">Lenguajes</span>
+              </div>
+              <div class="hero-stat" role="listitem">
+                <span class="hero-stat-num" data-target="5" aria-label="5">5</span>
+                <span class="hero-stat-label">Logros</span>
+              </div>
+              <div class="hero-stat" role="listitem">
+                <span class="hero-stat-num" data-target="2" aria-label="2">2</span>
+                <span class="hero-stat-label">Experiencias</span>
+              </div>
+            </div>
+
+            <div class="hero-cta">
+              <a
+                href="#contacto"
+                class="btn-primary"
+                aria-label="Ir a la sección de contacto"
+              >
+                <span aria-hidden="true">✉</span> Contáctame
+              </a>
+              <a
+                href="#conocimientos"
+                class="btn-outline"
+                aria-label="Ver mis conocimientos técnicos"
+              >
+                <span aria-hidden="true">⚡</span> Ver skills
+              </a>
+              <a
+                href="assets/CV_Oscar_Valverde.pdf"
+                download="CV_Oscar_Valverde.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline btn-cv"
+                id="btn-download-cv"
+                aria-label="Descargar currículum vitae de Oscar Valverde en formato PDF"
+              >
+                <span class="btn-cv-icon" aria-hidden="true">📥</span> Descargar CV
+              </a>
+            </div>
+          </div>
+
+          <!-- Image side -->
+          <div class="hero-image-wrapper reveal-right">
+            <div class="hero-photo-frame">
+              <div class="hero-photo-bg" aria-hidden="true"></div>
+              <div class="hero-photo-deco hero-photo-deco-1" aria-hidden="true"></div>
+              <div class="hero-photo-deco hero-photo-deco-2" aria-hidden="true"></div>
+              <img
+                src="assets/images/oscar.png"
+                alt="Oscar Valverde, estudiante de Ingeniería de Software, vestido formalmente"
+                class="hero-photo"
+                width="320"
+                height="380"
+                loading="eager"
+              />
+              <div class="hero-photo-tag" aria-hidden="true">ISW · UG · 2025</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: ESTUDIOS
+         ======================== -->
+    <section id="estudios" class="section" aria-labelledby="estudios-title">
+      <div class="section-deco" aria-hidden="true">EDU</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Formación //</span>
+          <h2 id="estudios-title" class="section-title">Estudios</h2>
+          <p class="section-subtitle">Mi trayectoria académica y formación educativa</p>
+        </header>
+
+        <div class="timeline" role="list">
+
+          <!-- UG -->
+          <div class="timeline-item reveal-left" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="glass-card timeline-card">
+              <time class="timeline-period" datetime="2025">2025 — Actualidad</time>
+              <h3 class="timeline-institution">Universidad de Guayaquil</h3>
+              <p class="timeline-degree">Ingeniería de Software</p>
+              <p class="timeline-desc">
+                Cursando el tercer semestre de la carrera de Ingeniería de Software.
+                Desarrollando competencias en programación orientada a objetos,
+                algoritmos, estructuras de datos y desarrollo de aplicaciones web
+                modernas.
+              </p>
+              <span class="timeline-badge">En curso · Tercer Semestre</span>
+            </article>
+          </div>
+
+          <!-- Liceo Grancolombiano -->
+          <div class="timeline-item reveal-right" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="glass-card timeline-card">
+              <time class="timeline-period" datetime="2019/2025">2019 — 2025</time>
+              <h3 class="timeline-institution">Liceo Grancolombiano</h3>
+              <p class="timeline-degree">Técnico en Informática · Bachiller</p>
+              <p class="timeline-desc">
+                Unidad Educativa Particular con énfasis en Informática.
+                Formación técnica en computación, redes y fundamentos de programación.
+                Graduado con distinciones académicas y reconocimientos por excelencia estudiantil.
+              </p>
+              <span class="timeline-badge">Graduado · 2025</span>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: CONOCIMIENTOS
+         ======================== -->
+    <section id="conocimientos" class="section" aria-labelledby="conocimientos-title">
+      <div class="section-deco" aria-hidden="true">SKL</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Skills Técnicos //</span>
+          <h2 id="conocimientos-title" class="section-title">Conocimientos</h2>
+          <p class="section-subtitle">Tecnologías, herramientas y competencias técnicas que domino</p>
+        </header>
+
+        <div class="skills-grid">
+
+          <!-- Lenguajes de Programación -->
+          <article class="glass-card skill-category-card reveal">
+            <h3 class="skill-category-title">
+              <span aria-hidden="true">💻</span> Lenguajes
+            </h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Java</span>
+                  <span class="skill-level">Intermedio</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Java: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="65%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-level">Intermedio</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Python: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="65%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">C++</span>
+                  <span class="skill-level">Básico-Intermedio</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="C++: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="55%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML / CSS</span>
+                  <span class="skill-level">Intermedio</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="HTML/CSS: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-level">Básico</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="JavaScript: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="45%"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ofimática & TI -->
+          <article class="glass-card skill-category-card reveal">
+            <h3 class="skill-category-title">
+              <span aria-hidden="true">🖥️</span> Informática & Ofimática
+            </h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Microsoft Office Suite</span>
+                  <span class="skill-level">Básico-Intermedio</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Microsoft Office: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="70%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Mant. correctivo PC</span>
+                  <span class="skill-level">Básico</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Mantenimiento PC: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="60%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Conceptos Informáticos</span>
+                  <span class="skill-level">Básico</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Conceptos informáticos: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="65%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="tech-tags" role="list" aria-label="Herramientas conocidas">
+              <span class="tech-tag" role="listitem">Word</span>
+              <span class="tech-tag" role="listitem">Excel</span>
+              <span class="tech-tag" role="listitem">PowerPoint</span>
+              <span class="tech-tag" role="listitem">Git</span>
+              <span class="tech-tag" role="listitem">VS Code</span>
+            </div>
+          </article>
+
+          <!-- Idiomas -->
+          <article class="glass-card skill-category-card reveal">
+            <h3 class="skill-category-title">
+              <span aria-hidden="true">🌐</span> Idiomas
+            </h3>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Español</span>
+                  <span class="skill-level">Nativo</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Español: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="100%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Inglés</span>
+                  <span class="skill-level">B2 - Intermedio Alto</span>
+                </div>
+                <div class="skill-bar" role="progressbar" aria-label="Inglés B2: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="72%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="tech-tags" role="list" aria-label="Certificaciones de idioma">
+              <span class="tech-tag" role="listitem">Inglés B2</span>
+              <span class="tech-tag" role="listitem">Lectura Técnica</span>
+              <span class="tech-tag" role="listitem">Documentación EN</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: HABILIDADES
+         ======================== -->
+    <section id="habilidades" class="section" aria-labelledby="habilidades-title">
+      <div class="section-deco" aria-hidden="true">ABL</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Profesional 4.0 //</span>
+          <h2 id="habilidades-title" class="section-title">Habilidades</h2>
+          <p class="section-subtitle">Competencias blandas y capacidades profesionales del profesional moderno</p>
+        </header>
+
+        <div class="abilities-grid">
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🤝</div>
+            <h3 class="ability-title">Trabajo en Equipo</h3>
+            <p class="ability-desc">Capacidad para colaborar, comunicar y alcanzar metas colectivas con eficiencia en entornos multidisciplinarios.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🧠</div>
+            <h3 class="ability-title">Razonamiento Lógico</h3>
+            <p class="ability-desc">Pensamiento analítico y matemático aplicado al diseño de algoritmos y resolución de problemas complejos.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🎯</div>
+            <h3 class="ability-title">Orientación a Metas</h3>
+            <p class="ability-desc">Persistencia y disciplina para lograr objetivos trazados, con compromiso y enfoque en resultados medibles.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🔄</div>
+            <h3 class="ability-title">Adaptabilidad</h3>
+            <p class="ability-desc">Facilidad para ajustarse a nuevos entornos, tecnologías y metodologías de trabajo con rapidez y efectividad.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">👂</div>
+            <h3 class="ability-title">Escucha Activa</h3>
+            <p class="ability-desc">Habilidad para escuchar, observar y comprender necesidades del equipo y del cliente para proponer soluciones adecuadas.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🛡️</div>
+            <h3 class="ability-title">Integridad</h3>
+            <p class="ability-desc">Actuación con valores de honestidad, lealtad y prudencia en todos los contextos laborales y académicos.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">😌</div>
+            <h3 class="ability-title">Manejo del Estrés</h3>
+            <p class="ability-desc">Capacidad para actuar con tranquilidad y criterio frente a situaciones imprevistas o de alta presión.</p>
+          </article>
+
+          <article class="glass-card ability-card reveal">
+            <div class="ability-icon" aria-hidden="true">🎓</div>
+            <h3 class="ability-title">Aprendizaje Continuo</h3>
+            <p class="ability-desc">Disposición y actitud proactiva para adquirir nuevos conocimientos y mantenerse actualizado en el campo tecnológico.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: EXPERIENCIA
+         ======================== -->
+    <section id="experiencia" class="section" aria-labelledby="experiencia-title">
+      <div class="section-deco" aria-hidden="true">EXP</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Trayectoria //</span>
+          <h2 id="experiencia-title" class="section-title">Experiencia</h2>
+          <p class="section-subtitle">Mi experiencia laboral y prácticas profesionales</p>
+        </header>
+
+        <div class="exp-grid">
+
+          <article class="glass-card exp-card reveal-left">
+            <time class="exp-period" datetime="2024-10">Octubre 2024</time>
+            <h3 class="exp-title">Pasante de Informática</h3>
+            <p class="exp-company">Sweet and Coffee · Universidad del Café (UDC)</p>
+            <ul class="exp-functions" aria-label="Funciones realizadas">
+              <li>Limpieza y organización de documentos digitales y físicos</li>
+              <li>Actualización de manuales corporativos al nuevo formato requerido</li>
+              <li>Preparación y acondicionamiento del área de reuniones</li>
+              <li>Archivo y gestión de manuales operativos de la empresa</li>
+            </ul>
+            <span class="exp-type-badge">Servicios Polifuncionales</span>
+          </article>
+
+          <article class="glass-card exp-card reveal-right">
+            <time class="exp-period" datetime="2024-12">Diciembre 2024</time>
+            <h3 class="exp-title">Asesor de Ventas & Auxiliar de Bodega</h3>
+            <p class="exp-company">Local Comercial · La Bahía, Guayaquil</p>
+            <ul class="exp-functions" aria-label="Funciones realizadas">
+              <li>Atención y asesoramiento personalizado a clientes en venta de calzado</li>
+              <li>Organización y clasificación de mercadería en bodega</li>
+              <li>Mantenimiento del orden y limpieza del área de trabajo</li>
+            </ul>
+            <span class="exp-type-badge">Servicios Polifuncionales</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: GALERÍA
+         ======================== -->
+    <section id="galeria" class="section" aria-labelledby="galeria-title">
+      <div class="section-deco" aria-hidden="true">PRJ</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Portfolio //</span>
+          <h2 id="galeria-title" class="section-title">Galería de Proyectos</h2>
+          <p class="section-subtitle">Proyectos académicos y personales en desarrollo</p>
+        </header>
+
+        <div class="gallery-filters" role="group" aria-label="Filtros de proyectos">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+          <button class="filter-btn" data-filter="app" aria-pressed="false">Aplicaciones</button>
+          <button class="filter-btn" data-filter="data" aria-pressed="false">Data & Algoritmos</button>
+        </div>
+
+        <div class="gallery-grid" role="list">
+
+          <article class="gallery-item reveal" data-category="web" role="listitem"
+            style="background: linear-gradient(135deg, #0a1e38 0%, #0d3060 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Sistema de Gestión Académica"
+          >
+            <div class="gallery-item-bg">🎓</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Sistema de Gestión Académica</h3>
+              <p class="gallery-item-tech">HTML · CSS · JavaScript · Python</p>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="app" role="listitem"
+            style="background: linear-gradient(135deg, #0d2030 0%, #0a3040 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Calculadora Algorítmica"
+          >
+            <div class="gallery-item-bg">⚡</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Calculadora Algorítmica</h3>
+              <p class="gallery-item-tech">Java · POO · Algoritmos</p>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="data" role="listitem"
+            style="background: linear-gradient(135deg, #0a2020 0%, #0d4040 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Análisis de Datos con Python"
+          >
+            <div class="gallery-item-bg">📊</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Análisis de Datos</h3>
+              <p class="gallery-item-tech">Python · NumPy · Matplotlib</p>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="web" role="listitem"
+            style="background: linear-gradient(135deg, #1a0a30 0%, #2d0060 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Portafolio Web Personal"
+          >
+            <div class="gallery-item-bg">🌐</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Portafolio Web Personal</h3>
+              <p class="gallery-item-tech">HTML · CSS · JavaScript</p>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="app" role="listitem"
+            style="background: linear-gradient(135deg, #0a1a10 0%, #0d3020 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Sistema de inventario en C++"
+          >
+            <div class="gallery-item-bg">📦</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Sistema de Inventario</h3>
+              <p class="gallery-item-tech">C++ · Estructuras de Datos</p>
+            </div>
+          </article>
+
+          <article class="gallery-item reveal" data-category="data" role="listitem"
+            style="background: linear-gradient(135deg, #1a1000 0%, #3d2800 100%);"
+            tabindex="0"
+            aria-label="Proyecto: Resolución de problemas matemáticos"
+          >
+            <div class="gallery-item-bg">🔢</div>
+            <div class="gallery-overlay">
+              <h3 class="gallery-item-title">Algoritmos Matemáticos</h3>
+              <p class="gallery-item-tech">Python · Matemáticas Discretas</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: LOGROS
+         ======================== -->
+    <section id="logros" class="section" aria-labelledby="logros-title">
+      <div class="section-deco" aria-hidden="true">ACH</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Reconocimientos //</span>
+          <h2 id="logros-title" class="section-title">Logros y Reconocimientos</h2>
+          <p class="section-subtitle">Distinciones y premios que marcan mi trayectoria</p>
+        </header>
+
+        <div class="achievements-grid">
+
+          <article class="glass-card achievement-card reveal">
+            <span class="achievement-icon" aria-hidden="true">🏅</span>
+            <time class="achievement-year" datetime="2024">Mayo 2024</time>
+            <h3 class="achievement-title">Mención de Honor · Portaestandarte</h3>
+            <p class="achievement-desc">
+              Reconocimiento como Portaestandarte de la Unidad Educativa Grancolombiano
+              en honor a su esfuerzo, dedicación y trayectoria estudiantil ejemplar.
+            </p>
+            <span class="achievement-badge">🎖️ Distinción Institucional</span>
+          </article>
+
+          <article class="glass-card achievement-card reveal">
+            <span class="achievement-icon" aria-hidden="true">🏆</span>
+            <time class="achievement-year" datetime="2025">Marzo 2025</time>
+            <h3 class="achievement-title">Premio Constancia</h3>
+            <p class="achievement-desc">
+              Por haber permanecido durante toda la educación secundaria en la institución,
+              demostrando esfuerzo, firmeza y valores que reflejan el espíritu de la comunidad.
+            </p>
+            <span class="achievement-badge">🌟 Premio Especial</span>
+          </article>
+
+          <article class="glass-card achievement-card reveal">
+            <span class="achievement-icon" aria-hidden="true">📜</span>
+            <time class="achievement-year" datetime="2025">2025</time>
+            <h3 class="achievement-title">Diploma al Mérito</h3>
+            <p class="achievement-desc">
+              Por destacado rendimiento académico 2024-2025. Exonerado del examen de grado
+              por excelencia académica, fruto del esfuerzo y dedicación en los estudios.
+            </p>
+            <span class="achievement-badge">⭐ Excelencia Académica</span>
+          </article>
+
+          <article class="glass-card achievement-card reveal">
+            <span class="achievement-icon" aria-hidden="true">🥇</span>
+            <time class="achievement-year" datetime="2023">2022 — 2023</time>
+            <h3 class="achievement-title">1er Lugar · Olimpiadas de Matemáticas</h3>
+            <p class="achievement-desc">
+              Medalla por primer lugar en las Olimpiadas de Matemáticas realizadas
+              en la semana cultural 2022-2023, con dedicación y esfuerzo excepcionales.
+            </p>
+            <span class="achievement-badge">🥇 Primer Lugar</span>
+          </article>
+
+          <article class="glass-card achievement-card reveal">
+            <span class="achievement-icon" aria-hidden="true">🥇</span>
+            <time class="achievement-year" datetime="2024">2023 — 2024</time>
+            <h3 class="achievement-title">1er Lugar · Olimpiadas de Matemáticas</h3>
+            <p class="achievement-desc">
+              Segunda medalla consecutiva por primer lugar en las Olimpiadas de Matemáticas
+              en la semana cultural 2023-2024, confirmando su talento analítico.
+            </p>
+            <span class="achievement-badge">🥇 Primer Lugar Consecutivo</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: REFERENCIAS
+         ======================== -->
+    <section id="referencias" class="section" aria-labelledby="referencias-title">
+      <div class="section-deco" aria-hidden="true">REF</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Avales Profesionales //</span>
+          <h2 id="referencias-title" class="section-title">Referencias</h2>
+          <p class="section-subtitle">Personas que pueden avalar mi desempeño y carácter profesional</p>
+        </header>
+
+        <div class="references-grid">
+
+          <article class="glass-card reference-card reveal">
+            <div class="reference-avatar" aria-hidden="true">DG</div>
+            <h3 class="reference-name">Docente Guía</h3>
+            <p class="reference-role">Tutor Académico</p>
+            <p class="reference-company">Universidad de Guayaquil</p>
+            <blockquote class="reference-quote">
+              Oscar demuestra una dedicación y compromiso excepcionales con su formación académica,
+              mostrando aptitudes analíticas destacadas y espíritu colaborativo en cada proyecto universitario.
+            </blockquote>
+          </article>
+
+          <article class="glass-card reference-card reveal">
+            <div class="reference-avatar" aria-hidden="true">DR</div>
+            <h3 class="reference-name">Director de Área</h3>
+            <p class="reference-role">Supervisor de Pasantía</p>
+            <p class="reference-company">Sweet and Coffee</p>
+            <blockquote class="reference-quote">
+              Durante su pasantía demostró responsabilidad, organización y capacidad para adaptarse
+              rápidamente a las dinámicas del entorno laboral con actitud profesional.
+            </blockquote>
+          </article>
+
+          <article class="glass-card reference-card reveal">
+            <div class="reference-avatar" aria-hidden="true">RC</div>
+            <h3 class="reference-name">Rector Institucional</h3>
+            <p class="reference-role">Autoridad Educativa</p>
+            <p class="reference-company">Liceo Grancolombiano</p>
+            <blockquote class="reference-quote">
+              Estudiante ejemplar durante toda su trayectoria en la institución. Su constancia,
+              valores y rendimiento lo distinguen como un profesional en formación de alto potencial.
+            </blockquote>
+          </article>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+          <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); letter-spacing: 2px;">
+            Referencias personales disponibles a solicitud
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+         SECCIÓN: CONTACTO
+         ======================== -->
+    <section id="contacto" class="section" aria-labelledby="contacto-title">
+      <div class="section-deco" aria-hidden="true">CON</div>
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">// Conectemos //</span>
+          <h2 id="contacto-title" class="section-title">Contacto</h2>
+          <p class="section-subtitle">¿Tienes un proyecto o propuesta? Escríbeme, estaré encantado de escucharte</p>
+        </header>
+
+        <div class="contact-inner">
+
+          <!-- Contact info -->
+          <div>
+            <h3 class="contact-info-title">Información de Contacto</h3>
+            <address>
+              <ul class="contact-items" role="list">
+
+                <li role="listitem">
+                  <a
+                    href="https://wa.me/593988402124"
+                    class="glass-card contact-item"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Contactar por WhatsApp: +593 988 402 124"
+                  >
+                    <div class="contact-icon" aria-hidden="true">💬</div>
+                    <div>
+                      <p class="contact-label">WhatsApp</p>
+                      <p class="contact-value">+593 988 402 124</p>
+                    </div>
+                  </a>
+                </li>
+
+                <li role="listitem">
+                  <a
+                    href="mailto:oscar.valverdegus@ug.edu.ec"
+                    class="glass-card contact-item"
+                    aria-label="Enviar correo a oscar.valverdegus@ug.edu.ec"
+                  >
+                    <div class="contact-icon" aria-hidden="true">📧</div>
+                    <div>
+                      <p class="contact-label">Correo Electrónico</p>
+                      <p class="contact-value">oscar.valverdegus@ug.edu.ec</p>
+                    </div>
+                  </a>
+                </li>
+
+                <li role="listitem">
+                  <a
+                    href="https://linkedin.com/in/oscar-esteban-valverde-gusqui-aa00913a7/"
+                    class="glass-card contact-item"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver perfil de LinkedIn de Oscar Valverde"
+                  >
+                    <div class="contact-icon" aria-hidden="true">💼</div>
+                    <div>
+                      <p class="contact-label">LinkedIn</p>
+                      <p class="contact-value">Oscar Esteban Valverde</p>
+                    </div>
+                  </a>
+                </li>
+
+                <li role="listitem">
+                  <div
+                    class="glass-card contact-item"
+                    aria-label="Ubicación: Guayaquil, Ecuador"
+                  >
+                    <div class="contact-icon" aria-hidden="true">📍</div>
+                    <div>
+                      <p class="contact-label">Ubicación</p>
+                      <p class="contact-value">Guayaquil, Ecuador</p>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </address>
+          </div>
+
+          <!-- Contact form -->
+          <div>
+            <h3 class="contact-info-title" style="margin-bottom: 24px;">Envíame un Mensaje</h3>
+            <form id="contact-form" class="contact-form" novalidate aria-label="Formulario de contacto">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Tu nombre</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  class="form-input"
+                  placeholder="¿Cómo te llamas?"
+                  required
+                  autocomplete="name"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Tu correo</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="tu@correo.com"
+                  required
+                  autocomplete="email"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Asunto</label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  name="subject"
+                  class="form-input"
+                  placeholder="¿De qué quieres hablar?"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Mensaje</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  class="form-textarea"
+                  placeholder="Cuéntame sobre tu proyecto o propuesta..."
+                  required
+                  aria-required="true"
+                  rows="5"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary" id="submit-btn" aria-live="polite">
+                <span aria-hidden="true">🚀</span> Enviar Mensaje
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-logo" aria-label="Oscar Valverde">OV.</p>
+
+        <nav aria-label="Navegación del pie de página">
+          <ul class="footer-nav" role="list">
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#estudios">Estudios</a></li>
+            <li><a href="#conocimientos">Skills</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#galeria">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            &copy; 2025 Oscar Esteban Valverde Gusqui · Guayaquil, Ecuador
+          </p>
+          <p class="footer-tech">
+            Hecho con <span aria-label="amor">♥</span> &amp; <span>HTML · CSS · JS</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button
+    id="scroll-top"
+    aria-label="Volver al inicio de la página"
+    title="Ir arriba"
+  >▲</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
